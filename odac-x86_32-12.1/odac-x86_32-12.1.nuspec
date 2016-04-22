@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>odac-x86_32-12.1</id>
+    <title>odac-x86_32-12.1 (Install)</title>
+    <version>12.1.0.24</version>
+    <authors>Oracle Corporation</authors>
+    <owners>Chad Miller</owners>
+    <summary>Oracle Data Access Components (ODAC)</summary>
+    <description>This package installs Oracle ODAC (32-bit).
+
+        ## Package Specifics
+        
+        **The install will fail unless manual download of ODAC zip file(s) is first completed!!!**
+        NOTE: Package does not automate download of ODAC file(s) from the source location of http://download.oracle.com/otn/ due to a mixture of cookies, redirects and password protection. ODAC must be manually downloaded to your web or file server and passed to the installer using the FROM_LOCATION package parameter on install OR downloaded to the default FROM_LOCATION of env:temp. Recommendation: Host ODAC files on your internal network and provide a custom config for the installation of the ODAC package to your users. For additional details see https://github.com/chocolatey/choco/wiki/CommandsInstall#packagesconfig. Alternatively: Host package on your internal nuget server and change following variables for your environment: FROM_LOCATION and PROD_HOME.
+
+        **This package is not intended to use with Chocolatey’s -x86 parameter. If you want a 32-bit ODAC on 64-bit systems, install the odac-x86_32 package instead. You can also install both. In that case you must specificy LINK_PATH=true.
+
+        ### Package Parameters
+        Package parameters should be passed using a hashtable syntax
+
+        * `FROM_LOCATION` -  The location of the source of the products to be installed. Full directory path to ODAC software. If not specified $env:temp is used. Note: file, http and ftp paths can be used. 
+        Example: \\network\share\path\odac\120120
+        * `PROD_HOME` - The local directory location for unzip. If not specified $env:ChocolateyInstall\lib\odac is used. PROD_HOME is the product location of the component on the target machine. The PROD_HOME variable is only used for non-Oracle Home components. Do NOT put ODAC libraries in ORACLE_HOME directory. Put the ODAC into a separate clean directory. 
+        Example: PROD_HOME=C:\Oracle\product
+        * `COMPONENT_LIST` - By Default COMPONENT_LIST=all. Comma-separated list of components to install: all,asp.net2,asp.net4,basic,odp.net2,odp.net4,oledb,oramts
+        Example: COMPONENT_LIST=odp.net2,oledb
+        * `ORACLE_HOME_PATH` - Sets this variable for uninstall command, full path to ODAC directory. If not specified  $env:ChocolateyInstall\lib\odac\$versionFolder is used.
+        Example: ORACLE_HOME_PATH = C:\Oracle\product\odac_12_1
+        * `MACHINE` - By default, MACHINE=true. If MACHINE option is true, ODP.NET assemblies are placed into the GAC and machine.config is configured, which impacts the entire machine. However, if MACHINE option is false, ODP.NET assemblies are not placed into the GAC and machine.config is not modified. If setting MACHINE=false, ungac pre-existing ODP.NET and Oracle ASP.NET provider assemblies from all homes on the machine and unconfigure them from machine.config. This can be accomplished by following the instructions in the "Uninstallation Instructions" section 
+        Example: MACHINE = trueof README.
+        * `DEPENDENT` - By default DEPENDENT=true. To not have the product dependencies installed and configured set to false.
+        Example: DEPENDENT = true
+        * `LINK_PATH` - By default, LINK_PATH=false. If LINK_PATH option is true, create symlink for $env:SystemRoot\system32\odac_12_1 or $env:SystemRoot\SysWOW64\odac_12_1 for 32-bit on 64-bit OS to ORACE_HOME_PATH directory. Setting LINK_PATH should only be used when running both 32-bit and 64-bit odac. Recommendation: Avoid running both 32-bit and 64-bit ODAC on the same machine unless necessary, otherwise pick 32-bit or 64-bit ODAC. For implementation details see http://realfiction.net/2009/11/26/Use-32-and-64bit-Oracle-Client-in-parallel-on-Windows-7-64-bit-for-eg-NET-Apps/
+        Example: LINK_PATH=true
+
+        Below is the product dependency information:
+
+            * Oracle Data Provider for .NET 2 depends on
+                * Oracle Instant Client
+            * Oracle Data Provider for .NET 4 depends on
+                * Oracle Instant Client (ODP.NET, Unmanaged Driver only)
+            * Oracle Providers for ASP.NET 2 depends on
+                * Oracle Instant Client
+                * Oracle Data Provider for .NET 2 (unmanaged driver)
+            * Oracle Providers for ASP.NET 4 depends on
+                * Oracle Data Provider for .NET 4 (managed driver)
+            * Oracle Provider for OLEDB depends on
+                * Oracle Instant Client
+            * Oracle Services for MTS depends on 
+                * Oracle Instant Client
+     
+To Install odac (64-bit)
+```
+choco install odac-12.1 -packageParameters "FROM_LOCATION=\\network\share\path\odac;PROD_HOME= C:\Oracle\product"
+```
+To Install odac (32-bit)
+```
+choco install odac-x86_32-12.1 -packageParameters "FROM_LOCATION=http://choco.local/odac;PROD_HOME= C:\Oracle\x86\product\"
+```
+Install both 32-bit and 64-bit odac
+```
+choco install odac-12.1 -packageParameters "FROM_LOCATION=http://choco.local/odac;PROD_HOME= C:\Oracle\product\;LINK_PATH=true" 
+```
+choco install odac-x86_32-12.1 -packageParameters "FROM_LOCATION=http://choco.local/odac;PROD_HOME= C:\Oracle\x86\product\;LINK_PATH=true" 
+```
+Uninstall odac (64-bit)
+```
+choco uninstall odac-12.1 -packageParameters "ORACLE_HOME_PATH=C:\Oracle\product\odac_12_1"
+```
+Uninstall odac (32-bit)
+```
+choco uninstall odac-x86_32-12.1 -packageParameters "ORACLE_HOME_PATH=C:\Oracle\x86\product\odac_12_1"
+```
+    </description>
+    <projectUrl>http://www.oracle.com/technetwork/topics/dotnet/whatsnew/index.html</projectUrl>
+    <tags>odac oracle</tags>
+    <licenseUrl>http://www.oracle.com/technetwork/licenses/distribution-license-152002.html</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+  </metadata>
+</package>
