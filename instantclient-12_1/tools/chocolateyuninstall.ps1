@@ -27,7 +27,7 @@ if ($machine) { $pathType = 'Machine' }
 
 if ($INSTANT_CLIENT_PATH -eq '') { $INSTANT_CLIENT_PATH = $(Join-Path $PROD_HOME $versionFolder) }
 
-if (Test-Path "$INSTANT_CLIENT_PATH") {
+if (Test-Path $(join-path $INSTANT_CLIENT_PATH "odbc_uninstall.exe")) {
     write-host "Uninstall odbc..."
     write-host "...push-location $INSTANT_CLIENT_PATH"
     push-location "$INSTANT_CLIENT_PATH"
