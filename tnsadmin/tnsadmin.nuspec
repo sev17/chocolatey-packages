@@ -33,6 +33,7 @@ choco install tnsadmin -packageParameters "FROM_LOCATION=\\network\share\oracle\
 
     </description>
     <projectUrl>https://github.com/sev17/chocolatey-packages</projectUrl>
+    <packageSourceUrl>https://github.com/sev17/chocolatey-packages</packageSourceUrl>
     <tags>tnsadmin admin config tns_admin</tags>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
   </metadata>

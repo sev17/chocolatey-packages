@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>oracle-clienttools-12_1</id>
+    <title>oracle-clienttools-12_1 (Install)</title>
+    <version>1.0.0</version>
+    <authors>Chad Miller</authors>
+    <owners>Chad Miller</owners>
+    <summary>oracle-clienttools-12_1</summary>
+    <description>This package installs oracle client tools </description>
+    <projectUrl>https://github.com/sev17/chocolatey-packages</projectUrl>
+    <packageSourceUrl>https://github.com/sev17/chocolatey-packages</packageSourceUrl>
+    <tags>oracle instantclient tnsadmin sqlplus jdbc sqldeveloper testoracleconnect</tags>
+    <dependencies>
+        <dependency id='tnsadmin' />
+        <dependency id='instantclient-12_1' />
+        <dependency id='instantclient-jdbc-12_1' />
+        <dependency id='instantclient-sqlplus-12_1' />
+        <dependency id='oracle-sqldeveloper' />
+        <dependency id='test-oracleconnect.powershell' />
+    </dependencies>
+  </metadata>
+</package>

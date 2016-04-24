@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>oracle-sqldeveloper</id>
+    <title>oracle-sqldeveloper (32-bit)</title>
+    <version>4.1.3</version>
+    <authors>Oracle Corporation</authors>
+    <owners>Chad Miller</owners>
+    <summary>Oracle SQL Developer (oracle-sqldeveloper)</summary>
+    <description>This package installs Oracle SQL Developer 64-bit with JDK 8 included
+
+        ## Package Specifics
+        **The install will fail unless manual download of SQL Developer zip file(s) is first completed!!!**
+        **Because the 32-bit SQLDeveloper requires JDK while 64-bit does not only the 32-bit install has a dependency on 32-bit JDK 8 or higher. 
+
+        Note: SQLDeveloper 64-bit can be installed without admin access while 32-bit because of JDK requirement needs local admin  ** 
+
+        Package does not automate download of SQL Developer file(s) from the source location of http://download.oracle.com/otn/ due to a mixture of cookies, redirects and password protection. SQL Developer must be manually downloaded to your web or file server and passed to the installer using the FROM_LOCATION package parameter on install OR downloaded to the default FROM_LOCATION of env:temp. Recommendation: Host SQL Developer files on your internal network and provide a custom config for the installation of the SQL Developer package to your users. For additional details see https://github.com/chocolatey/choco/wiki/CommandsInstall#packagesconfig.   Alternatively: Host package on your internal nuget server and change following variables for your environment: FROM_LOCATION, PROD_HOME, and machine.
+
+        ### Package Parameters
+        Package parameters should be passed using a hashtable syntax
+
+        * `FROM_LOCATION` -  The location of the source of the products to be installed. Full directory path to SQL Developer software. If not specified $env:temp is used. Note: file, http and ftp paths can be used. 
+        Example: \\network\share\path\sqldeveloper
+        * `PROD_HOME` - The local directory location for unzip. If not specified $env:ChocolateyInstall\lib\sqldeveloper is used. PROD_HOME is the product location of the component on the target machine. The PROD_HOME variable is only used for non-Oracle Home components. Do NOT put SQL Developer libraries in ORACLE_HOME directory. Put the SQL Developer into a separate clean directory. 
+        Example: PROD_HOME=C:\Oracle\product
+        * `SQLDEVELOPER_PATH` - Sets this variable for uninstall command, full path to SQL Developer directory. If not specified  $env:ChocolateyInstall\lib\sqldeveloper is used.
+        Example: SQLDEVELOPER_PATH = C:\Oracle\product\sqldeveloper
+        * `MACHINE` - Set this boolean variable to true to set the SQL Developer directory path to a machine path env variable instead of default user env path variable.
+        Example: MACHINE = true
+
+Install according to platform
+```
+choco install oracle-sqldeveloper -packageParameters "FROM_LOCATION=\\network\share\path\sqldeveloper;PROD_HOME= C:\Oracle\product"
+```
+Install 32-bit InstantClient on 64-bit OS
+```
+choco install oracle-sqldeveloper -packageParameters "FROM_LOCATION=\\network\share\path\sqldeveloper;PROD_HOME= C:\Oracle\x86\product"  --forcex86
+```
+Uninstall sqldeveloper
+```
+choco uninstall oracle-sqldeveloper -packageParameters "SQLDEVELOPER_PATH=C:\Oracle\product\sqldeveloper"
+```
+    </description>
+    <projectUrl>http://www.oracle.com/technetwork/developer-tools/sql-developer/overview/index.html</projectUrl>
+    <packageSourceUrl>https://github.com/sev17/chocolatey-packages</packageSourceUrl>
+    <tags>admin sqldeveloper oracle</tags>
+    <licenseUrl>http://www.oracle.com/technetwork/licenses/sqldev-license-152021.html</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+  </metadata>
+</package>
