@@ -1,6 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 $packageName = 'oracle-sqldeveloper'
 $version = '4.1.3'
+$packageFolder = 'sqldeveloper'
 $filename = 'sqldeveloper-4.1.3.20.78-no-jre.zip'
 $filename64 = 'sqldeveloper-4.1.3.20.78-x64.zip'
 $checksum = '6e0794531f0391d8c436d08f224fd791'
@@ -54,16 +55,16 @@ write-host "url: $url"
 Install-ChocolateyZipPackage -packageName $packageName -url "$url" -unzipLocation "$PROD_HOME" -checksum $checksum -checksumType $checksumType
 
 #Setting path variable instead of using shims. Generate .ignore files for unwanted .exe files
-$files = get-childitem "$PROD_HOME\$packageName" -include *.exe -recurse
+$files = get-childitem "$PROD_HOME\$packageFolder" -include *.exe -recurse
 foreach ($file in $files) {
     New-Item "$file.ignore" -type file -force | Out-Null
 }
 
 #Workaround for msvcr100.dll issue https://community.oracle.com/thread/3897502
 if ($filename -eq $filename64) {
-    copy-item "$PROD_HOME\$packageName\jdk\jre\bin\msvcr100.dll" -Destination "$PROD_HOME\$packageName\sqldeveloper\bin"
+    copy-item "$PROD_HOME\$packageFolder\jdk\jre\bin\msvcr100.dll" -Destination "$PROD_HOME\$packageFolder\sqldeveloper\bin"
 }
 
-Install-ChocolateyPath -pathToInstall $(join-path $PROD_HOME $packageName) -pathType $pathType
+Install-ChocolateyPath -pathToInstall $(join-path $PROD_HOME $packageFolder) -pathType $pathType
 
-Install-ChocolateyDesktopLink -targetFilePath "$PROD_HOME\$packageName\sqldeveloper.exe"
+Install-ChocolateyDesktopLink -targetFilePath "$PROD_HOME\$packageFolder\sqldeveloper.exe"

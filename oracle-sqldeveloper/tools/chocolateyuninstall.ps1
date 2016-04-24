@@ -2,6 +2,7 @@
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 $packageName = 'oracle-sqldeveloper'
 $version = '4.1.3'
+$packageFolder = 'sqldeveloper'
 $PROD_HOME = "$env:ChocolateyPackageFolder"
 $SQLDEVELOPER_PATH = ''
 $machine = $false
@@ -23,7 +24,7 @@ if ($packageParameters) {
 
 if ($machine) { $pathType = 'Machine' }
 
-if ($SQLDEVELOPER_PATH -eq '') { $SQLDEVELOPER_PATH = $(Join-Path $PROD_HOME $packageName) }
+if ($SQLDEVELOPER_PATH -eq '') { $SQLDEVELOPER_PATH = $(Join-Path $PROD_HOME $packageFolder) }
 
 Uninstall-Path -pathToUnInstall $SQLDEVELOPER_PATH -pathType $pathType
 
