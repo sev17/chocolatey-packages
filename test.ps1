@@ -13,7 +13,7 @@ choco install instantclient-12_1 -packageParameters "FROM_LOCATION=\\vmware-host
 
 choco install instantclient-jdbc-12_1 -packageParameters "FROM_LOCATION=\\vmware-host\Shared Folders\Desktop\oracle\windows\instantclient\120120;PROD_HOME=C:\Oracle\product" -s "$pwd;C:\orainstall\instantclient" --force
 
-choco install instantclient-12_1 instantclient-sqlplus-12_1 instantclient-jdbc-12_1 -packageParameters "FROM_LOCATION=\\vmware-host\Shared Folders\Desktop\oracle\windows\instantclient\120120;PROD_HOME=C:\Oracle\product" -s "$pwd;C:\orainstall\instantclient-jdbc;C:\orainstall\instantclient-sqlplus" --force
+choco install instantclient-12_1 instantclient-sqlplus-12_1 instantclient-jdbc-12_1 -packageParameters "FROM_LOCATION=\\vmware-host\Shared Folders\Desktop\oracle\windows\instantclient\120120;PROD_HOME=C:\Oracle\product" -s "$pwd;C:\orainstall\instantclient-jdbc-12_1;C:\orainstall\instantclient-sqlplus-12_1" --force
 
 choco install instantclient-odbc-12_1 -packageParameters "FROM_LOCATION=\\vmware-host\Shared Folders\Desktop\oracle\windows\instantclient\120120;PROD_HOME=C:\Oracle\product" -s "$pwd" -y --force
 
@@ -25,7 +25,11 @@ choco install odt-vs2015 -packageParameters "FROM_LOCATION=\\vmware-host\Shared 
 
 choco install odac-x86_32-12_1 -packageParameters "FROM_LOCATION=\\vmware-host\Shared Folders\Desktop\oracle\windows\odac;PROD_HOME=C:\Oracle\product\x86;COMPONENT_LIST=odp.net4" -s "$pwd" --force
 
-choco uninstall odac-x86_32-12_1 -packageParameters "ORACLE_HOME_PATH=C:\Oracle\product\x86\odac_12_1"
+choco uninstall odac-x86_32-12_1 -packageParameters "ORACLE_HOME_PATH=C:\Oracle\x86\product\odac_12_1"
 
 choco install C:\orainstall\packages.config\oracle-clienttools.config -y --force
+
+choco install C:\orainstall\packages.config\odac-custom-x64x86.config -y --force
+
+choco install oracle-manageddataaccess -s "https://chocolatey.org/api/v2/;$pwd"
 
