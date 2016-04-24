@@ -4,7 +4,7 @@
   <metadata>
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>oracle-sqldeveloper</id>
-    <title>oracle-sqldeveloper (32-bit)</title>
+    <title>oracle-sqldeveloper (install)</title>
     <version>4.1.3</version>
     <authors>Oracle Corporation</authors>
     <owners>Chad Miller</owners>
