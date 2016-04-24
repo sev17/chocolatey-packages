@@ -49,5 +49,6 @@ choco uninstall oracle-sqldeveloper -packageParameters "SQLDEVELOPER_PATH=C:\Ora
     <tags>admin sqldeveloper oracle</tags>
     <licenseUrl>http://www.oracle.com/technetwork/licenses/sqldev-license-152021.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://cdn.rawgit.com/sev17/chocolatey-packages/0beee56eda5022c3933b0b3cfe8dd4be1d8db99c/icons/sqldeveloper.png</iconUrl>
   </metadata>
 </package>
