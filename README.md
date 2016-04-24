@@ -18,10 +18,10 @@ odt-vs2015
 $FROM_LOCATION
 $LINK_TNS
 
-oracle.manageddataaccess
+oracle-manageddataaccess
 $PROD_HOME
 
-sqldeveloper
+oracle-sqldeveloper
 $FROM_LOCATION 
 $PROD_HOME = "$env:ChocolateyInstall\lib\$parentPackageName"
 $pathType = 'User'
