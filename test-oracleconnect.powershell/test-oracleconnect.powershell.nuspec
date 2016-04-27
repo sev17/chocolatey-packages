@@ -8,11 +8,12 @@
     <version>0.1.0</version>
     <authors>Chad Miller</authors>
     <owners>Chad Miller</owners>
-    <summary>Installs Powershell script test-oracleconnect.ps1</summary>
+    <summary>Installs Powershell script test-oracleconnect.ps1 - tests Oracle connectivity</summary>
     <description>
-        Installs Powershell script test-oracleconnect.ps1 which can be used for testing Oracle connectivity.
+Installs Powershell script test-oracleconnect.ps1 which can be used for testing Oracle connectivity.
 
 Install 
+
 ```
 choco install test-oracleconnect.powershell
 ```

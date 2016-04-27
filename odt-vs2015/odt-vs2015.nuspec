@@ -4,42 +4,44 @@
   <metadata>
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>odt-vs2015</id>
-    <title>odt-vs2015 (Install)</title>
+    <title>Oracle Developer Tools for Visual Studio</title>
     <version>12.1.0.24</version>
     <authors>Oracle Corporation</authors>
     <owners>Chad Miller</owners>
-    <summary>Oracle Data Tools for Visual Studio 2015 (odt-vs2015)</summary>
-    <description>This package installs Oracle Data Tools for Visual Studio 2015 (x86).
+    <summary>Oracle Developer Tools for Visual Studio (ODT) is an Add-in for Microsoft Visual Studio</summary>
+    <description>
+This package installs Oracle Data Tools for Visual Studio 2015 (x86).
 
-        ## Package Specifics
-        **The install will fail unless manual download of SetupODTforVS2015.exe is first completed!!!**
-        NOTE: Package does not automate download of SetupODTforVS2015.exe from the source location of http://download.oracle.com/otn/ due to a mixture of cookies, redirects and password protection. SetupODTforVS2015.exe must be manually downloaded to your web or file server and passed to the installer using the FROM_LOCATION package parameter on install OR downloaded to the default FROM_LOCATION of env:temp. Recommendation: Host SetupODTforVS2015.exe file on your internal network and provide a custom config for the installation of the SetupODTforVS2015.exe package to your users. For additional details see https://github.com/chocolatey/choco/wiki/CommandsInstall#packagesconfig.  Alternatively: Host package on your internal nuget server and change following variables for your environment: FROM_LOCATION and LINK_TNS.
+### Package Specifics
+**The install will fail unless manual download of SetupODTforVS2015.exe is first completed!!!**
 
-        Before you install this package please make sure there is no ODAC/Oracle Universal Installer (OUI) version of Oracle Developer Tools for Visual Studio installed on the machine. If there is then please use OUI to uninstall Oracle Developer Tools for Visual Studio before proceeding with this install.
+NOTE: Package does not automate download of SetupODTforVS2015.exe from [Oracle Technology Network](http://download.oracle.com/otn/) due to a mixture of cookies, redirects and password protection. SetupODTforVS2015.exe must be downloaded and the location passed to the installer using the FROM_LOCATION package parameter OR downloaded to the default FROM_LOCATION of `env:temp`. Recommendation: Host package on your internal nuget server and change *FROM_LOCATION* and *LINK_TNS* variables for your environment.
 
-        This package installs:
+Before you install this package please make sure there is no ODAC/Oracle Universal Installer (OUI) version of Oracle Developer Tools for Visual Studio installed on the machine. If there is then please use OUI to uninstall Oracle Developer Tools for Visual Studio before proceeding with this install.
+
+This package installs:
  
-        * Oracle Developer Tools for Visual Studio 12.1.0.2.4
-        * Oracle Data Provider for .NET 4, Managed Driver 12.1.0.2.0
-        * Oracle Providers for ASP.NET 4 12.1.0.2.0
+* Oracle Developer Tools for Visual Studio 12.1.0.2.4
+* Oracle Data Provider for .NET 4, Managed Driver 12.1.0.2.0
+* Oracle Providers for ASP.NET 4 12.1.0.2.0
         
-        This package does not include support for User Defined Types nor Oracle Database Extensions for .NET.
+This package does not include support for User Defined Types nor Oracle Database Extensions for .NET.
 
-        If you require Oracle Data Provider for .NET, Unmanaged Driver then please download the ODAC/OUI version of Oracle Developer Tools for Visual Studio.
+If you require Oracle Data Provider for .NET, Unmanaged Driver then please download the ODAC/OUI version of Oracle Developer Tools for Visual Studio.
 
-        ### Package Parameters
-        Package parameters should be passed using a hashtable syntax}
+#### Package Parameters
+Package parameters should be passed using a hashtable syntax
 
-        * `FROM_LOCATION` -  The location of the source of the products to be installed. Full directory path to SetupODTforVS2015.exe software. If not specified $env:temp is used. Note: file, http and ftp paths can be used. 
-        Example: \\network\share\path\odt
-        * `LINK_TNS` - By default, LINK_TNS=false. If LINK_TNS option is true and environment variable TNS_ADMIN set, create symlink for $env:ProgramFiles(x86)\Oracle Developer Tools for VS2015\network\admin to TNS_ADMIN directory
-        Example: LINK_TNS=true
+* `FROM_LOCATION` -  The location of the source of the products to be installed. Full directory path to SetupODTforVS2015.exe software. If not specified `$env:temp` is used. Note: file, http and ftp paths can be used. 
+Example: `FROM_LOCATION=\\network\share\path\odt`
+* `LINK_TNS` - By default, `LINK_TNS=false`. If LINK_TNS option is true and environment variable TNS_ADMIN set, create symlink for `$env:ProgramFiles(x86)\Oracle Developer Tools for VS2015\network\admin` to *TNS_ADMIN* directory
+Example: `LINK_TNS=true`
      
 Install according to platform
+
 ```
 choco install odt-vs2015 -packageParameters "FROM_LOCATION=\\network\share\path\odt"
 ```
-
     </description>
     <projectUrl>http://www.oracle.com/technetwork/developer-tools/visual-studio/overview/index-097110.html</projectUrl>
     <packageSourceUrl>https://github.com/sev17/chocolatey-packages</packageSourceUrl>
