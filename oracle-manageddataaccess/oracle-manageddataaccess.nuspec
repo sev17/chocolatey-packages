@@ -39,4 +39,3 @@ choco install oracle-manageddataaccess -packageParameters "PROD_HOME= C:\Oracle\
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
   </metadata>
 </package>
-cd
