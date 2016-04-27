@@ -33,9 +33,10 @@ choco install oracle-manageddataaccess -packageParameters "PROD_HOME= C:\Oracle\
     <packageSourceUrl>https://github.com/sev17/chocolatey-packages</packageSourceUrl>
     <tags>oracle manageddataaccess</tags>
     <dependencies>
-        <dependency id='nuget.commandline' version="3.3.0"/>
+        <dependency id='NuGet.CommandLine' version="3.3.0" />
     </dependencies>
     <licenseUrl>http://www.oracle.com/technetwork/licenses/distribution-license-152002.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
   </metadata>
 </package>
+cd
