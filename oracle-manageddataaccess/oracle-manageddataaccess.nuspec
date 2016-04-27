@@ -4,24 +4,27 @@
   <metadata>
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>oracle-manageddataaccess</id>
-    <title>oracle-manageddataaccess (Install)</title>
+    <title>Oracle ODP.NET Managed Driver</title>
     <version>12.1.2400</version>
     <authors>Oracle Corporation</authors>
     <owners>Chad Miller</owners>
-    <summary>Oracle ODP.NET, Managed Driver (manageddataaccess)</summary>
-    <description>This package installs (downloads) Oracle ODP.NET, Managed Driver x86 and x64.
+    <summary>Oracle ODP.NET, Managed Driver</summary>
+    <description>
+This package installs (downloads) Oracle ODP.NET, Managed Driver x86 and x64.
 
-        ODP.NET, Managed Driver is a 100% native .NET code driver. No additional Oracle Client software is required to be installed to connect to Oracle Database.
+### Package Specifics
+ODP.NET, Managed Driver is a 100% native .NET code driver. No additional Oracle Client software is required to be installed to connect to Oracle Database.
 
-        Note: The 32-bit Oracle Developer Tools for Visual Studio download from http://otn.oracle.com/dotnet is required for Entity Framework design-time features and for other Visual Studio designers such as the TableAdapter Wizard. This NuGet download does not enable design-time tools, only run-time support.
+Note: The 32-bit Oracle Developer Tools for Visual Studio download from http://otn.oracle.com/dotnet is required for Entity Framework design-time features and for other Visual Studio designers such as the TableAdapter Wizard. This NuGet download does not enable design-time tools, only run-time support.
 
-        ### Package Parameters
-        Package parameters should be passed using a hashtable syntax
+#### Package Parameters
+Package parameters should be passed using a hashtable syntax
 
-        * `PROD_HOME` - The local directory location for unzip. If not specified $env:ChocolateyInstall\lib\oracle.manageddataaccess is used. PROD_HOME is the product location of the component on the target machine. The PROD_HOME variable is only used for non-Oracle Home components. Do NOT put Instant Client libraries in ORACLE_HOME directory. Put the Instant Client into a separate clean directory. 
-        Example: PROD_HOME=C:\Oracle\product
+* `PROD_HOME` - The local directory location for download. If not specified `$env:ChocolateyInstall\lib\oracle-manageddataaccess` is used. `PROD_HOME` is the product location of the component on the target machine. The `PROD_HOME` variable is only used for non-Oracle Home components. Do NOT put ODP.NET libraries in `ORACLE_HOME` directory. Put the ODP.NET into a separate clean directory. 
+Example: `PROD_HOME=C:\Oracle\product`
 
 Install
+
 ```
 choco install oracle-manageddataaccess -packageParameters "PROD_HOME= C:\Oracle\product"
 ```
@@ -30,7 +33,7 @@ choco install oracle-manageddataaccess -packageParameters "PROD_HOME= C:\Oracle\
     <packageSourceUrl>https://github.com/sev17/chocolatey-packages</packageSourceUrl>
     <tags>oracle manageddataaccess</tags>
     <dependencies>
-        <dependency id='nuget.commandline' />
+        <dependency id='nuget.commandline' version="3.3.0"/>
     </dependencies>
     <licenseUrl>http://www.oracle.com/technetwork/licenses/distribution-license-152002.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
