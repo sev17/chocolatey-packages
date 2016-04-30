@@ -2,7 +2,7 @@
 $packageName = 'instantclient-odbc-12_1'
 $version = '12.1.0.2'
 $versionFolder = 'instantclient_12_1'
-$parentPackageName = 'instantclient'
+$parentPackageName = 'instantclient-12_1'
 $filename = 'instantclient-odbc-nt-12.1.0.2.0.zip'
 $filename64 = 'instantclient-odbc-windows.x64-12.1.0.2.0.zip'
 $checksum = 'ca12f847f886a4b0b007827c3cb5b0ae'

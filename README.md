@@ -3,7 +3,7 @@ Chocolatey Packages (sev17)
 
 This repository contains chocolatey packages maintained by Chad Miller.
 
-Variables to change to customize pacakges for your environment:
+Variables to change to customize packages for your environment:
 
 
 instantclient*
