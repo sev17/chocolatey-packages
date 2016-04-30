@@ -2,7 +2,7 @@
 $packageName = 'instantclient-jdbc-12_1'
 $version = '12.1.0.2'
 $versionFolder = 'instantclient_12_1'
-$parentPackageName = 'instantclient'
+$parentPackageName = 'instantclient-12_1'
 $filename = 'instantclient-jdbc-nt-12.1.0.2.0.zip'
 $filename64 = 'instantclient-jdbc-windows.x64-12.1.0.2.0.zip'
 $checksum = 'ad07e0a267adf41e745c2e0cda0bace6'

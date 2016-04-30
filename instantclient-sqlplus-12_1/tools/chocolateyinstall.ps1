@@ -2,7 +2,7 @@
 $packageName = 'instantclient-sqlplus-12_1'
 $version = '12.1.0.2'
 $versionFolder = 'instantclient_12_1'
-$parentPackageName = 'instantclient'
+$parentPackageName = 'instantclient-12_1'
 $filename = 'instantclient-sqlplus-nt-12.1.0.2.0.zip'
 $filename64 = 'instantclient-sqlplus-windows.x64-12.1.0.2.0.zip'
 $checksum = '239370f05403bf8b3fadacbaac0cb39a'
