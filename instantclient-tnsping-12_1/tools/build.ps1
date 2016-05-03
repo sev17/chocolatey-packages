@@ -12,7 +12,7 @@ $client_bin= 'C:\Oracle\x86\product\12.1.0\client_1\bin'
 #Change value to your environment
 $tnspingTempDir = 'C:\orainstall\tnspingTempDir'
 $zipFileName = "C:\orainstall\instantclient-tnsping-12_1\tools\instantclient-tnsping-12_1.zip"
-#$zipFileName = "C:\orainstall\instantclient-tnsping-x86_32-12_1\tools\instantclient-tnsping-x86_32-12_1.zip"
+#$zipFileName = "C:\orainstall\instantclient-tnsping-12_1\tools\instantclient-tnsping-x86_32-12_1.zip"
 $pathList = @('oraasmclnt12.dll','oracell12.dll','oraclient12.dll','oraclsce12.dll','oracommon12.dll','oracore12.dll','orageneric12.dll','orahasgen12.dll','oraldapclnt12.dll','oran12.dll','orancds12.dll','orancrypt12.dll','oranhost12.dll','oranl12.dll','oranldap12.dll','oranls12.dll','oranro12.dll','orantcp12.dll','orantns12.dll','oraocr12.dll','oraocrb12.dll','oraocrutl12.dll','oraplp12.dll','orapls12.dll','ORASLAX12.DLL','orasnls12.dll','oraunls12.dll','orauts.dll','oravsn12.dll','orawsec12.dll','oraxml12.dll','orazt12.dll','oraztkg12.dll','tnsping.exe')
 
 if (!(test-path $tnspingTempDir)) {
