@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>instantclient-tnsping-12_1</id>
+    <title>Oracle tnsping 12.1</title>
+    <version>12.1.0.2</version>
+    <authors>Oracle Corporation</authors>
+    <owners>Chad Miller</owners>
+    <summary>Tnsping - Tests Connectivity from client to an Oracle Net listener service</summary>
+    <description>
+This package installs Oracle tnsping utility according to your platform (x86 or x64).
+
+### Package Specifics
+        
+**This install will fail unless manual packaging and build is completed first see build.ps1!!!**
+ 
+#### Package Parameters
+Package parameters should be passed using a hashtable syntax
+
+* `PROD_HOME` - The local directory location for unzip. If not specified `$env:ChocolateyInstall\lib\instantclient-tnsping-12_1` is used. `PROD_HOME` is the product location of the component on the target machine. The `PROD_HOME` variable is only used for non-Oracle Home components. Do NOT put Instant Client libraries in `ORACLE_HOME` directory. Put the Instant Client into a separate clean directory. 
+Example: `PROD_HOME=C:\Oracle\product`
+* `MACHINE` - Set this boolean variable to true to set the Instant Client directory path to a machine path env variable instead of default user env path variable.
+Example: `MACHINE=true`
+
+Install according to platform
+
+```
+choco install instantclient-tnsping-12_1 -packageParameters "PROD_HOME= C:\Oracle\product"
+```
+Install 32-bit InstantClient on 64-bit OS
+
+```
+choco install instantclient-tnsping-12_1 -packageParameters "PROD_HOME= C:\Oracle\x86\product\" --forcex86
+```
+    </description>
+    <projectUrl>http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html</projectUrl>
+    <packageSourceUrl>https://github.com/sev17/chocolatey-packages</packageSourceUrl>
+    <tags>tnsping oracle</tags>
+    <licenseUrl>http://www.oracle.com/technetwork/licenses/standard-license-152015.html</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+  </metadata>
+</package>

@@ -47,3 +47,7 @@ if (Test-Path "$INSTANT_CLIENT_PATH") {
   Write-Host "Removing $INSTANT_CLIENT_PATH..."
   remove-item -Recurse -Force "$INSTANT_CLIENT_PATH"
 }
+
+if ($INSTANT_CLIENT_PATH -eq $env:ORACLE_HOME) {
+    [Environment]::SetEnvironmentVariable('ORACLE_HOME', $null, $pathType)
+}

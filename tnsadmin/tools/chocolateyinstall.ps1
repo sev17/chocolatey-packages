@@ -32,7 +32,7 @@ if ([System.IO.Path]::GetExtension("$FROM_LOCATION") -eq ".zip") {
   $file = Join-Path $tempDir $([System.IO.Path]::GetFileName($FROM_LOCATION))
     
   Get-ChocolateyWebFile -packageName $packageName -fileFullPath "$file" -url "$FROM_LOCATION"
-  Get-ChocolateyUnzip -fileFullPath "$file" -TNS_ADMIN $tempDir -packageName $packageName
+  Get-ChocolateyUnzip -fileFullPath "$file" -destination $tempDir -packageName $packageName
   copy-item -Path "$tempDir\*" -Destination "$TNS_ADMIN" -force  -Exclude '*.zip'
 }
 elseif ((get-item "$FROM_LOCATION" -ErrorAction "SilentlyContinue") -is [System.IO.DirectoryInfo]) {
