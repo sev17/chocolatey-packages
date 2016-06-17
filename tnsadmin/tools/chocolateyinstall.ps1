@@ -18,7 +18,7 @@ if ($packageParameters) {
 
     if ($packageParameters.ContainsKey("TNS_ADMIN")) { $TNS_ADMIN = $packageParameters.TNS_ADMIN }
     
-    if ($packageParameters.ContainsKey("MACHINE")) { $pathType = [System.Convert]::ToBoolean($($packageParameters.MACHINE)) }
+    if ($packageParameters.ContainsKey("MACHINE")) { $machine = [System.Convert]::ToBoolean($($packageParameters.MACHINE)) }
 }
 
 if ($machine) { $pathType = 'Machine' }
